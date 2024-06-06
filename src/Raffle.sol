@@ -96,10 +96,10 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface, ReentrancyG
      * @return performData An empty bytes object (not used in this implementation)
      */
     function checkUpkeep(bytes memory /* checkData */ )
-    public
-    view
-    override
-    returns (bool upkeepNeeded, bytes memory /* performData */ )
+        public
+        view
+        override
+        returns (bool upkeepNeeded, bytes memory /* performData */ )
     {
         bool timeHasPassed = (block.timestamp - s_lastTimeStamp) >= i_interval;
         bool isOpen = RaffleState.OPEN == s_raffleState;
